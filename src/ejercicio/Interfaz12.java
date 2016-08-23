@@ -5,6 +5,8 @@
  */
 package ejercicio;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author DanielDeJesus
@@ -27,21 +29,150 @@ public class Interfaz12 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtNPeliculas = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtNDias = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtMontoPagar = new javax.swing.JTextField();
+        cmdCalcular = new javax.swing.JButton();
+        cmdBorrar = new javax.swing.JButton();
+
+        jLabel2.setText("jLabel2");
+
+        jTextField1.setText("jTextField1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 14)); // NOI18N
+        jLabel1.setText("Ejercicio Número 12: Calcular monto a pagar por el alquiler de peliculas");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        jLabel3.setText("Nº de peliculas:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
+
+        txtNPeliculas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNPeliculasKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtNPeliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 60, -1));
+
+        jLabel4.setText("Nº de días:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, -1, -1));
+
+        txtNDias.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNDiasKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtNDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 60, -1));
+
+        jLabel5.setText("Monto a pagar:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
+
+        txtMontoPagar.setEditable(false);
+        txtMontoPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMontoPagarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtMontoPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 60, -1));
+
+        cmdCalcular.setText("Calcular");
+        cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCalcularActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
+
+        cmdBorrar.setText("Borrar");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtMontoPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoPagarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMontoPagarActionPerformed
+
+    private void txtNPeliculasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNPeliculasKeyTyped
+        char c=evt.getKeyChar();
+        
+        if(!Character.isDigit(c)){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNPeliculasKeyTyped
+
+    private void txtNDiasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNDiasKeyTyped
+        char c=evt.getKeyChar();
+        
+        if(!Character.isDigit(c)){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNDiasKeyTyped
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+        txtMontoPagar.setText("");
+        txtNDias.setText("");
+        txtNPeliculas.setText("");
+        
+        txtNPeliculas.requestFocusInWindow();
+    }//GEN-LAST:event_cmdBorrarActionPerformed
+
+    private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
+        String res;
+        double nPeliculas, nDias, op, op2;
+        
+        if(txtNPeliculas.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Digite el Nº de peliculas", "Error", JOptionPane.ERROR_MESSAGE);
+            txtNPeliculas.requestFocusInWindow();
+        }
+        else if(txtNDias.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Digite el Nº de dias", "Error", JOptionPane.ERROR_MESSAGE);
+            txtNDias.requestFocusInWindow();
+        }
+        else{
+            
+            nPeliculas = Double.parseDouble(txtNPeliculas.getText());
+            nDias = Double.parseDouble(txtNDias.getText());
+            
+            op = nPeliculas - 1;
+            op2 = (op + nDias) * 1500;
+            
+            res = String.valueOf(op2);
+            txtMontoPagar.setText(res);
+            
+        }
+        
+        
+        
+    }//GEN-LAST:event_cmdCalcularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +210,17 @@ public class Interfaz12 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdBorrar;
+    private javax.swing.JButton cmdCalcular;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtMontoPagar;
+    private javax.swing.JTextField txtNDias;
+    private javax.swing.JTextField txtNPeliculas;
     // End of variables declaration//GEN-END:variables
 }
